@@ -4,6 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class Introduction1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Get screen size
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: SafeArea(
@@ -34,34 +38,34 @@ class Introduction1 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 280),
+                  SizedBox(height: screenHeight * 0.35), // Adjust height based on screen size
                   // Main Title Text
                   Text(
                     'Cari tempat liburan\nmu disini.',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.tiltWarp(
                       fontWeight: FontWeight.normal,
-                      fontSize: 32,
+                      fontSize: screenWidth * 0.06, // Responsive text size
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 200),
+                  SizedBox(height: screenHeight * 0.2),
                   Text(
                     'No Wacana Wacana!',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: screenWidth * 0.04, // Responsive text size
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 0),
+                  SizedBox(height: 5),
                   Text(
                     'Ga usah fafifu buat cari destinasi tempat mainmu',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.normal,
-                      fontSize: 12,
+                      fontSize: screenWidth * 0.035, // Responsive text size
                       color: Colors.grey[700],
                     ),
                   ),
@@ -70,20 +74,20 @@ class Introduction1 extends StatelessWidget {
             ),
             // Positioned Image (First Image)
             Positioned(
-              top: 120,
-              left: -80, // Can adjust to control the horizontal position
+              top: screenHeight * 0.15,
+              left: -screenWidth * 0.2, // Responsive left position
               child: CircleAvatar(
-                radius: 120,
-                backgroundImage: AssetImage('assets/camping1.png'), // First image
+                radius: screenWidth * 0.3, // Responsive radius
+                backgroundImage: AssetImage('assets/camping1.png'),
               ),
             ),
             // Positioned Image (Second Image)
             Positioned(
-              bottom: 230,
-              right: -40, // Can adjust to control the horizontal position
+              bottom: screenHeight * 0.25,
+              right: -screenWidth * 0.1, // Responsive right position
               child: CircleAvatar(
-                radius: 120,
-                backgroundImage: AssetImage('assets/camping2.png'), // Second image
+                radius: screenWidth * 0.3, // Responsive radius
+                backgroundImage: AssetImage('assets/camping2.png'),
               ),
             ),
             // Button at the bottom center
@@ -93,7 +97,7 @@ class Introduction1 extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 50.0, right: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/introduction2');// Add your button functionality here
+                    Navigator.pushNamed(context, '/introduction2'); // Button functionality
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -105,7 +109,7 @@ class Introduction1 extends StatelessWidget {
                   child: Text(
                     'Lanjut',
                     style: GoogleFonts.ubuntu(
-                      fontSize: 18,
+                      fontSize: screenWidth * 0.045, // Responsive button text
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),

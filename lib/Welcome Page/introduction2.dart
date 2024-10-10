@@ -4,6 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class Introduction2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Dapatkan ukuran layar
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: SafeArea(
@@ -19,7 +23,7 @@ class Introduction2 extends StatelessWidget {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(screenWidth * 0.02), // Responsif padding
                       decoration: BoxDecoration(
                         color: Colors.black,
                         shape: BoxShape.circle,
@@ -29,39 +33,39 @@ class Introduction2 extends StatelessWidget {
                         style: GoogleFonts.ubuntu(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: screenWidth * 0.04, // Responsif font size
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 350),
+                  SizedBox(height: screenHeight * 0.4), // Responsif jarak vertikal
                   // Main Title Text
                   Text(
                     'Komunitas tanpa \nbatas.',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.tiltWarp(
                       fontWeight: FontWeight.normal,
-                      fontSize: 32,
+                      fontSize: screenWidth * 0.08, // Responsif font size
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 150),
+                  SizedBox(height: screenHeight * 0.15), // Responsif jarak vertikal
                   Text(
                     'Help Us!',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: screenWidth * 0.04, // Responsif font size
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 0),
-                    Text(
+                  SizedBox(height: 5),
+                  Text(
                     'Bantu kami dan user lainnya explore tempat asik',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.ubuntu(
                       fontWeight: FontWeight.normal,
-                      fontSize: 12,
+                      fontSize: screenWidth * 0.035, // Responsif font size
                       color: Colors.grey[700],
                     ),
                   ),
@@ -69,14 +73,13 @@ class Introduction2 extends StatelessWidget {
               ),
             ),
             // Positioned Image (First Image)
-
             Positioned(
-              top: 50,
-              left: -20, // Can adjust to control the horizontal position
+              top: screenHeight * 0.06,
+              left: -screenWidth * 0.05, // Responsif posisi horizontal
               child: Container(
-                width: 400, // Sesuaikan dengan ukuran yang diinginkan
-                height: 400,
-                child: Image.asset('assets/camping3.png'), // First image
+                width: screenWidth * 0.85, // Responsif ukuran lebar gambar
+                height: screenHeight * 0.45, // Responsif ukuran tinggi gambar
+                child: Image.asset('assets/camping3.png'), // Gambar pertama
               ),
             ),
             // Button at the bottom center
@@ -86,19 +89,21 @@ class Introduction2 extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 50.0, right: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/login');// Add your button functionality here
+                    Navigator.pushNamed(context, '/login'); // Tambah fungsi tombol di sini
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.1, // Responsif padding tombol
+                        vertical: screenHeight * 0.02), // Responsif padding tombol
                     backgroundColor: Colors.black,
                   ),
                   child: Text(
                     'Mulai',
                     style: GoogleFonts.ubuntu(
-                      fontSize: 18,
+                      fontSize: screenWidth * 0.045, // Responsif font size tombol
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),

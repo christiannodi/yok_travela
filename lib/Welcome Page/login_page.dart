@@ -50,6 +50,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       resizeToAvoidBottomInset: true,
@@ -286,17 +289,17 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 320),
+                        const SizedBox(height: 280),
                       ],
                     ),
                   ),
                   Positioned(
-                    bottom: 0,
-                    right: -30,
+                    top: screenHeight * 0.6,
+                    left: screenWidth * 0.2, // Responsif posisi horizontal
                     child: Container(
-                      width: 300,
-                      height: 300,
-                      child: Image.asset('assets/camping.png'),
+                      width: screenWidth * 0.85, // Responsif ukuran lebar gambar
+                      height: screenHeight * 0.45, // Responsif ukuran tinggi gambar
+                      child: Image.asset('assets/camping.png'), // Gambar pertama
                     ),
                   ),
                 ],
