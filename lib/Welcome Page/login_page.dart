@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void _handleLogin() {
+  void _handleLogin() async {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
@@ -39,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
       _buttonOpacity = 0.0; // Ubah opacity menjadi 0
     });
 
+
     // Setelah 2 detik, kembalikan tombol ke keadaan semula
     Future.delayed(Duration(milliseconds: 800), () {
       setState(() {
@@ -46,6 +47,11 @@ class _LoginPageState extends State<LoginPage> {
         _buttonOpacity = 1.0; // Kembalikan opacity menjadi 1
       });
     });
+
+    await Future.delayed(Duration(seconds: 2));
+
+    print('Login executed after delay');
+
   }
 
   @override
@@ -62,6 +68,15 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Stack(
                 children: [
+                  Positioned(
+                    top: screenHeight * 0.6,
+                    left: screenWidth * 0.2,
+                    child: Container(
+                      width: screenWidth * 0.85,
+                      height: screenHeight * 0.45,
+                      child: Image.asset('assets/camping.png'),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -279,6 +294,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             TextButton(
                               onPressed: () {
+
                                 Navigator.pushNamed(context, '/register');
                               },
                               child: Text(
@@ -295,15 +311,9 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
-                  Positioned(
-                    top: screenHeight * 0.6,
-                    left: screenWidth * 0.2, // Responsif posisi horizontal
-                    child: Container(
-                      width: screenWidth * 0.85, // Responsif ukuran lebar gambar
-                      height: screenHeight * 0.45, // Responsif ukuran tinggi gambar
-                      child: Image.asset('assets/camping.png'), // Gambar pertama
-                    ),
-                  ),
+
+
+
                 ],
               ),
             ],

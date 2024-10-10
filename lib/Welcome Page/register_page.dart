@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
-  void _handleRegister() {
+  void _handleRegister() async {
     String username = _usernameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
@@ -56,6 +56,11 @@ class _RegisterPageState extends State<RegisterPage> {
         _buttonOpacity = 1.0; // Kembalikan opacity menjadi 1
       });
     });
+
+    await Future.delayed(Duration(seconds: 1));
+
+    print('Login executed after delay'); // GANTI ACTION INI!
+    Navigator.pushNamed(context, '/login');
   }
 
   @override
@@ -82,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                         // "Buat Akun" di sebelah kiri
                         Text(
-                          'Buat Akun',
+                          ' Buat Akun',
                           style: GoogleFonts.tiltWarp(
                             fontSize: 40,
                             color: Colors.black,
@@ -94,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                         // Sub-title di bawahnya, juga di kiri
                         Text(
-                          ' Gabung dan eksplor tempat menarik',
+                          '    Gabung dan eksplor tempat menarik',
                           textAlign: TextAlign.left, // Menyelaraskan teks ke kiri
                           style: GoogleFonts.tienne(
                             fontSize: 12,
